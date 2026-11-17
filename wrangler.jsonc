@@ -5,6 +5,6 @@
   "name": "rune",
   "compatibility_date": "2025-06-01",
 
-  // Pas de build : le site est deja un index.html statique a la racine du repo.
-  "pages_build_output_dir": "./"
+  // Build minimal : copie index.html + _headers dans ./dist.
+  "pages_build_output_dir": "./dist"
 }

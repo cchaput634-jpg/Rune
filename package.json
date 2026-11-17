@@ -1,0 +1,9 @@
+{
+  "name": "rune",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Traduction de Rune — site statique (DA Skylis)",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/index.html && cp _headers dist/_headers"
+  }
+}
