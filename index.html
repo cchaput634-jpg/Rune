@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Runes de Skylis — Traduction & Grimoire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=La+Belle+Aurore&family=Noto+Sans+Runic&display=swap">
+<style>
+/* ============================================================
+   RUNES DE SKYLIS — Nation du vent
+   Turquoise foncé, blanc, or
+   ============================================================ */
+:root{
+  /* Turquoise un peu foncé */
+  --sky-50:  #ecfeff;
+  --sky-100: #cffafe;
+  --sky-200: #a5f3fc;
+  --sky-300: #67e8f9;
+  --sky-400: #22d3ee;
+  --sky-500: #06b6d4;
+  --sky-600: #0891b2;
+  --sky-700: #0e7490;
+  --sky-800: #155e75;
+  --sky-900: #164e63;
+  --sky-950: #0b3a4d;
+
+  /* Or */
+  --gold-200: #fde68a;
+  --gold-300: #fcd34d;
+  --gold-400: #fbbf24;
+  --gold-500: #f59e0b;
+  --gold-600: #d97706;
+  --gold-700: #b45309;
+  --gold-800: #92400e;
+
+  --breeze:  #e4f8f9;
+  --cloud:   #f5fdfd;
+  --ivory:   #ffffff;
+  --ink:     #0b3b48;
+  --ink-soft:#2a6b7a;
+  --ink-red: #9a2d20;
+
+  --f-display:"Cinzel", Georgia, serif;
+  --f-body:   "Cormorant Garamond", Georgia, serif;
+  --f-script: "Pinyon Script", "Apple Chancery", cursive;
+  --f-hand:   "La Belle Aurore", "Bradley Hand", "Segoe Script", cursive;
+  --f-rune:   "Noto Sans Runic", "Segoe UI Historic", "Segoe UI Symbol", sans-serif;
+
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100svh; }
+body {
+  font-family: var(--f-body);
+  color: var(--ink);
+  background-color: var(--breeze);
+  background-image:
+    radial-gradient(ellipse 60% 50% at 15% 10%, rgba(14, 116, 144, 0.28), transparent 60%),
+    radial-gradient(ellipse 65% 55% at 90% 85%, rgba(8, 145, 178, 0.22), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 50% 50%, rgba(255, 255, 255, 0.85), transparent 70%),
+    linear-gradient(180deg, #e4f8f9 0%, #c7eef1 55%, #a7e3e8 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before{
+  content:"";
+  position: fixed; inset: 0;
+  z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 14% 12%, rgba(14, 116, 144, 0.5), transparent 60%),
+    radial-gradient(1px 1px at 78% 22%, rgba(14, 116, 144, 0.4), transparent 60%),
+    radial-gradient(.8px .8px at 36% 48%, rgba(14, 116, 144, 0.3), transparent 60%),
+    radial-gradient(1px 1px at 61% 64%, rgba(14, 116, 144, 0.4), transparent 60%),
+    radial-gradient(.8px .8px at 24% 82%, rgba(14, 116, 144, 0.32), transparent 60%),
+    radial-gradient(1px 1px at 88% 72%, rgba(14, 116, 144, 0.4), transparent 60%),
+    radial-gradient(.9px .9px at 52% 30%, rgba(14, 116, 144, 0.28), transparent 60%);
+  animation: driftbreeze 9s ease-in-out infinite alternate;
+}
+@keyframes driftbreeze{
+  0%   { opacity: .55; transform: translate3d(0, 0, 0); }
+  100% { opacity: 1;   transform: translate3d(6px, -6px, 0); }
+}
+
+#app{
+  position: relative; z-index: 1;
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header.top{
+  text-align: center;
+  padding: 2.25rem 1rem 1.25rem;
+}
+header.top .kicker{
+  font-family: var(--f-body);
+  font-style: italic;
+  font-size: .95rem;
+  color: rgba(14, 116, 144, 0.85);
+  letter-spacing: .05em;
+}
+header.top h1{
+  margin: .25rem 0 0;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+  letter-spacing: .06em;
+  background: linear-gradient(180deg, #0e7490 0%, #155e75 55%, #164e63 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 20px rgba(14, 116, 144, 0.2);
+}
+header.top .sep{
+  margin: .9rem auto 0;
+  width: 10rem; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(14, 116, 144, 0.7), transparent);
+}
+header.top .tag{
+  margin-top: .75rem;
+  font-size: 1rem;
+  color: rgba(42, 107, 122, 0.95);
+}
+
+/* ============================================================
+   NAV / ONGLETS
+   ============================================================ */
+nav.tabs{
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  padding: 0 1rem .5rem;
+}
+nav.tabs button{
+  font-family: var(--f-display);
+  font-size: .9rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 116, 144, 0.4);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--sky-800);
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s, transform .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+nav.tabs button:hover{
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--sky-700);
+}
+nav.tabs button[aria-selected="true"]{
+  background: linear-gradient(180deg, #0e7490 0%, #155e75 100%);
+  color: #fff;
+  border-color: var(--sky-800);
+  box-shadow: 0 6px 18px -8px rgba(14, 116, 144, 0.7);
+}
+
+main.view{ flex: 1; display: flex; flex-direction: column; }
+section.view{ display: none; flex: 1; flex-direction: column; }
+section.view.active{ display: flex; }
+
+/* ============================================================
+   TRADUCTION
+   ============================================================ */
+.trad-wrap{
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.intro{
+  text-align: center;
+  font-style: italic;
+  color: rgba(42, 107, 122, 0.95);
+  max-width: 36rem;
+  margin: 0 auto;
+}
+.card{
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(14, 116, 144, 0.3);
+  border-radius: 14px;
+  box-shadow:
+    0 10px 30px -14px rgba(14, 116, 144, 0.35),
+    0 2px 6px -2px rgba(14, 116, 144, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  padding: 1.1rem 1.25rem;
+}
+.card-gold{
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(252, 211, 77, 0.65);
+  border-radius: 14px;
+  box-shadow:
+    0 12px 30px -14px rgba(180, 83, 9, 0.3),
+    0 2px 6px -2px rgba(180, 83, 9, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  padding: 1.25rem 1.5rem;
+}
+
+/* Composition */
+.compo{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 6.5rem;
+}
+.slot{
+  position: relative;
+  padding-top: .25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+}
+.slot .tile{
+  width: 3.5rem;
+  height: 5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(14, 116, 144, 0.55);
+  background: linear-gradient(180deg, #ffffff 0%, #ecfeff 100%);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 6px -2px rgba(14, 116, 144, 0.2);
+}
+.slot .tile .rune{
+  font-family: var(--f-rune);
+  font-size: 2.2rem;
+  color: var(--sky-800);
+  line-height: 1;
+}
+.slot.space .tile .bar{
+  width: 1.5rem; height: 1px;
+  background: rgba(14, 116, 144, 0.55);
+}
+.slot .label{
+  font-family: var(--f-display);
+  font-size: .7rem;
+  letter-spacing: .15em;
+  color: var(--sky-700);
+  text-transform: uppercase;
+}
+.slot .letters{
+  display: flex;
+  gap: .3rem;
+}
+.slot .letters button{
+  font-family: var(--f-display);
+  font-size: .8rem;
+  padding: .1rem .45rem;
+  border-radius: 6px;
+  border: 1px solid rgba(14, 116, 144, 0.35);
+  background: rgba(255, 255, 255, 0.5);
+  color: rgba(14, 116, 144, 0.75);
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.slot .letters button[aria-pressed="true"]{
+  background: var(--sky-700);
+  color: #fff;
+  border-color: var(--sky-800);
+}
+.slot .letters button:hover{ border-color: var(--sky-700); color: var(--sky-800); }
+.slot .remove{
+  position: absolute;
+  top: -.35rem; right: -.35rem;
+  height: 1.25rem; width: 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 116, 144, 0.5);
+  background: #fff;
+  color: var(--sky-700);
+  display: grid; place-items: center;
+  cursor: pointer;
+  font-size: .9rem; line-height: 1;
+}
+.slot .remove:hover{ background: #fee2e2; color: #b91c1c; border-color: #fca5a5; }
+
+.add-btn{
+  flex-shrink: 0;
+  width: 3.5rem; height: 5rem;
+  border-radius: 8px;
+  border: 2px dashed rgba(14, 116, 144, 0.5);
+  background: transparent;
+  color: var(--sky-700);
+  display: grid; place-items: center;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.add-btn:hover, .add-btn.open{
+  background: rgba(14, 116, 144, 0.08);
+  border-color: var(--sky-700);
+  color: var(--sky-800);
+}
+
+/* Picker */
+.picker{
+  overflow: hidden;
+  transition: grid-template-rows .3s ease, opacity .25s;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+.picker.open{
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.picker > div{ min-height: 0; overflow: hidden; }
+.picker .picker-inner{
+  padding: 1.1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(14, 116, 144, 0.3);
+  border-radius: 14px;
+  box-shadow:
+    0 10px 30px -14px rgba(14, 116, 144, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.picker header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .8rem;
+}
+.picker header h4{
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: 1rem;
+  letter-spacing: .1em;
+  background: linear-gradient(180deg, #0e7490 0%, #155e75 100%);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.picker header button.close{
+  height: 2rem; width: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 116, 144, 0.5);
+  background: #fff;
+  color: var(--sky-700);
+  cursor: pointer;
+}
+.picker-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: .55rem;
+}
+@media (min-width: 640px){ .picker-grid{ grid-template-columns: repeat(6, 1fr); } }
+@media (min-width: 768px){ .picker-grid{ grid-template-columns: repeat(8, 1fr); } }
+.picker-grid button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+  padding: .5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(14, 116, 144, 0.3);
+  background: rgba(236, 254, 255, 0.5);
+  color: var(--sky-800);
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.picker-grid button:hover{
+  background: rgba(14, 116, 144, 0.08);
+  border-color: var(--sky-700);
+}
+.picker-grid button .rune{
+  font-family: var(--f-rune);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.picker-grid button .letters{
+  font-family: var(--f-display);
+  font-size: .65rem;
+  letter-spacing: .15em;
+  color: rgba(14, 116, 144, 0.75);
+}
+.picker-grid button.space{
+  grid-column: span 2;
+  flex-direction: row;
+  justify-content: center;
+}
+.picker-grid button.space .bar{
+  display: inline-block;
+  width: 2rem; height: 1px;
+  background: rgba(14, 116, 144, 0.55);
+  margin-right: .4rem;
+}
+
+/* Output */
+.output{
+  text-align: center;
+}
+.output .kicker{
+  font-family: var(--f-display);
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(42, 107, 122, 0.9);
+  margin-bottom: .4rem;
+}
+.output .reading{
+  font-family: var(--f-body);
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  font-style: italic;
+  color: var(--sky-900);
+  line-height: 1.3;
+  word-break: break-word;
+  min-height: 2rem;
+}
+.output .reading.empty{
+  font-size: 1.1rem;
+  color: rgba(42, 107, 122, 0.6);
+}
+
+/* Actions */
+.actions{
+  display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap;
+}
+.actions[hidden]{ display: none; }
+button.btn{
+  font-family: var(--f-display);
+  letter-spacing: .08em;
+  padding: .55rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: .5rem;
+  transition: transform .15s, filter .2s, background .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+button.btn:active{ transform: translateY(1px); }
+button.btn.primary{
+  color: #fff;
+  background: linear-gradient(180deg, #0891b2 0%, #0e7490 100%);
+  border-color: var(--sky-800);
+  box-shadow: 0 6px 16px -6px rgba(14, 116, 144, 0.55);
+}
+button.btn.primary:hover{ filter: brightness(1.05); }
+button.btn.gold{
+  color: var(--gold-800);
+  background: linear-gradient(180deg, #fde68a 0%, #fbbf24 100%);
+  border-color: rgba(217, 119, 6, 0.6);
+  box-shadow: 0 6px 16px -6px rgba(217, 119, 6, 0.4);
+}
+button.btn.gold:hover{ filter: brightness(1.05); }
+button.btn.ghost{
+  color: var(--sky-800);
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(14, 116, 144, 0.45);
+}
+button.btn.ghost:hover{ background: rgba(255, 255, 255, 0.9); }
+
+/* ============================================================
+   GRIMOIRE (flipbook)
+   ============================================================ */
+.book-wrap{
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  padding-left: max(1rem, env(safe-area-inset-left, 0));
+  padding-right: max(1rem, env(safe-area-inset-right, 0));
+  padding-block: 1rem 2rem;
+}
+.stage{
+  position: relative;
+  perspective: 2600px;
+  overflow: visible;
+}
+.stage.single{ overflow: hidden; border-radius: 2px; }
+.book{
+  position: relative;
+  width: calc(var(--pw) * 2);
+  height: var(--ph);
+  transition: transform .9s cubic-bezier(.45,.05,.25,1);
+  transform-style: preserve-3d;
+}
+.leaf{
+  position: absolute; top: 0; left: 50%;
+  width: 50%; height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform .9s cubic-bezier(.45,.05,.25,1);
+  cursor: pointer;
+}
+.leaf.flipped{ transform: rotateY(-180deg); }
+.face{
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+.back{ transform: rotateY(180deg); }
+
+/* Papier Skylis — crème blanc à encre turquoise */
+.paper{
+  background:
+    radial-gradient(ellipse at 25% 20%, rgba(255, 255, 255, 0.85), transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(167, 227, 232, 0.4), transparent 55%),
+    radial-gradient(ellipse at 10% 80%, rgba(199, 238, 241, 0.5), transparent 45%),
+    #f5fdfd;
+  color: var(--ink);
+  box-shadow: inset 0 0 calc(var(--pw) * .09) rgba(14, 116, 144, 0.25);
+}
+.paper::before{
+  content: "";
+  position: absolute; inset: 0;
+  opacity: .14;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix values='0 0 0 0 .05 0 0 0 0 .3 0 0 0 0 .35 0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.paper::after{
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: .25;
+  mix-blend-mode: multiply;
+  background-size: cover;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='700'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='.014' numOctaves='4' seed='3'/><feColorMatrix values='0 0 0 0 .08 0 0 0 0 .4 0 0 0 0 .45 0 0 0 1.1 -.55'/></filter><rect width='100%25' height='100%25' filter='url(%23m)'/></svg>");
+}
+.front.paper{ background-color: #f5fdfd; }
+.front.paper .gutter{
+  position: absolute; inset: 0 auto 0 0;
+  width: 12%;
+  background: linear-gradient(90deg, rgba(14, 116, 144, 0.18), transparent);
+  pointer-events: none;
+  z-index: 3;
+}
+.back.paper .gutter{
+  position: absolute; inset: 0 0 0 auto;
+  width: 12%;
+  background: linear-gradient(270deg, rgba(14, 116, 144, 0.18), transparent);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pg{
+  position: relative; z-index: 2;
+  height: 100%;
+  box-sizing: border-box;
+  padding: calc(var(--pw) * .1) calc(var(--pw) * .1) calc(var(--pw) * .08);
+  display: flex; flex-direction: column;
+  gap: calc(var(--pw) * .03);
+  font-size: calc(var(--pw) * .043);
+  line-height: 1.38;
+}
+.front .pg{ padding-left: calc(var(--pw) * .13); }
+.back .pg{  padding-right: calc(var(--pw) * .13); }
+h2{
+  font-family: var(--f-display);
+  font-weight: 600;
+  color: var(--sky-900);
+  font-size: 1.5em;
+  margin: 0;
+  text-align: center;
+  text-wrap: balance;
+  line-height: 1.1;
+  letter-spacing: .04em;
+}
+.rule{
+  display: flex; align-items: center; gap: .5em;
+  color: var(--sky-700);
+  font-family: var(--f-rune);
+  font-size: .9em;
+  justify-content: center;
+}
+.rule::before, .rule::after{
+  content: "";
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky-600), transparent);
+}
+p{ margin: 0; font-family: var(--f-hand); font-size: 1em; line-height: 1.5; }
+.lettrine::first-letter{
+  font-family: var(--f-hand);
+  color: var(--sky-800);
+  float: left;
+  font-size: 2.6em;
+  line-height: 1;
+  margin: -.05em .18em 0 0;
+}
+.rn{
+  font-family: var(--f-rune);
+  font-style: normal;
+  color: var(--sky-900);
+  font-size: 1.05em;
+}
+.sig{
+  font-family: var(--f-hand);
+  font-size: 1.7em;
+  color: var(--sky-800);
+  text-align: right;
+  margin-top: auto;
+  line-height: 1;
+}
+.folio{
+  position: absolute;
+  bottom: calc(var(--pw) * .04);
+  left: 0; right: 0;
+  text-align: center;
+  font-family: var(--f-display);
+  font-size: calc(var(--pw) * .034);
+  color: var(--ink-soft);
+  z-index: 2;
+  letter-spacing: .15em;
+}
+.note{
+  font-size: .92em;
+  color: var(--ink-soft);
+  border-left: 1px solid var(--sky-500);
+  padding-left: .6em;
+}
+ul, ol{
+  margin: 0; padding-left: 1.2em;
+  display: flex; flex-direction: column;
+  gap: .35em;
+  font-family: var(--f-hand);
+  font-size: 1em;
+  line-height: 1.45;
+}
+ol li::marker{ font-family: var(--f-script); font-style: normal; color: var(--sky-800); font-size: 1.25em; }
+ul li::marker{ content: "᛫  "; font-family: var(--f-rune); color: var(--sky-700); }
+
+/* Table des runes */
+.runes-table{ display: flex; flex-direction: column; gap: 0; margin-top: .2em; }
+.row{
+  display: grid;
+  grid-template-columns: 2.6em 2.2em 1fr;
+  align-items: center;
+  gap: .4em;
+  padding: .18em 0;
+  border-bottom: 1px dashed rgba(14, 116, 144, 0.3);
+}
+.row .r{
+  font-family: var(--f-rune);
+  font-size: 1.7em; line-height: 1;
+  text-align: center;
+  color: var(--sky-900);
+}
+.row .l{
+  font-family: var(--f-hand);
+  font-size: 1.6em; line-height: 1;
+  color: var(--sky-800);
+  text-align: center;
+}
+.row .n{
+  font-family: var(--f-hand);
+  color: var(--ink-soft);
+  font-size: 1.05em;
+}
+
+.pair{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .2em .7em;
+  align-items: center;
+}
+.pair .gl{
+  font-family: var(--f-rune);
+  font-size: 1.45em;
+  white-space: nowrap;
+  color: var(--sky-900);
+}
+.pair p{ font-size: .92em; line-height: 1.4; }
+
+/* Couverture */
+.cover{
+  background:
+    radial-gradient(ellipse at 30% 25%, rgba(255, 255, 255, 0.25), transparent 50%),
+    linear-gradient(135deg, #0e7490, #0b3a4d);
+  color: var(--gold-300);
+  box-shadow: inset 0 0 calc(var(--pw) * .12) rgba(0, 0, 0, 0.5);
+}
+.cover::before{
+  content: "";
+  position: absolute; inset: 0;
+  opacity: .22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='l'><feTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='4'/><feColorMatrix values='0 0 0 0 .4 0 0 0 0 .6 0 0 0 0 .65 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23l)'/></svg>");
+}
+.cv{
+  position: absolute;
+  inset: calc(var(--pw) * .06);
+  border: 2px solid rgba(252, 211, 77, 0.65);
+  outline: 1px solid rgba(252, 211, 77, 0.5);
+  outline-offset: calc(var(--pw) * -.025);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: calc(var(--pw) * .045);
+  text-align: center;
+  padding: calc(var(--pw) * .08);
+}
+.cv .band{
+  font-family: var(--f-rune);
+  font-size: calc(var(--pw) * .045);
+  letter-spacing: .35em;
+  color: rgba(252, 211, 77, 0.85);
+}
+.cv h1{
+  margin: 0;
+  font-family: var(--f-script);
+  font-weight: normal;
+  font-size: calc(var(--pw) * .15);
+  line-height: .95;
+  color: var(--gold-300);
+  text-shadow: 0 1px 0 #000, 0 0 10px rgba(252, 211, 77, 0.35);
+  text-wrap: balance;
+}
+.cv .by{
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: calc(var(--pw) * .048);
+  letter-spacing: .15em;
+  color: var(--gold-300);
+}
+.cv .nation{
+  font-family: var(--f-display);
+  font-size: calc(var(--pw) * .035);
+  letter-spacing: .25em;
+  color: rgba(252, 211, 77, 0.65);
+  font-style: italic;
+}
+.cv svg{ width: calc(var(--pw) * .32); height: auto; }
+.spine-l{ position: absolute; inset: 0 auto 0 0; width: 7%; background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent); }
+.spine-r{ position: absolute; inset: 0 0 0 auto; width: 7%; background: linear-gradient(270deg, rgba(0, 0, 0, 0.5), transparent); }
+
+/* Gardes */
+.endpaper{
+  background:
+    repeating-radial-gradient(circle at 30% 40%, #155e75 0 6px, #0e7490 6px 13px, #0891b2 13px 17px),
+    #0e7490;
+}
+.endpaper::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse, transparent 30%, rgba(0, 0, 0, 0.5));
+}
+.exlib{
+  position: absolute;
+  inset: 18% 14%;
+  z-index: 2;
+  background: #f5fdfd;
+  color: var(--ink);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  gap: .5em;
+  padding: 1em;
+  font-size: calc(var(--pw) * .042);
+  border: 1px solid rgba(14, 116, 144, 0.5);
+}
+.exlib .small{
+  font-family: var(--f-display);
+  letter-spacing: .18em;
+  font-size: .8em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.exlib .name{
+  font-family: var(--f-hand);
+  font-size: 2.2em;
+  line-height: 1;
+  color: var(--sky-800);
+}
+.exlib svg{ width: 3.2em; }
+
+/* Commandes */
+.bar{
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--f-display);
+  color: var(--sky-800);
+  font-size: 15px;
+  letter-spacing: .08em;
+}
+.bar button{
+  font: inherit;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--sky-800);
+  border: 1px solid rgba(14, 116, 144, 0.5);
+  border-radius: 999px;
+  width: 44px; height: 44px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition: background .2s, border-color .2s;
+}
+.bar button:hover:not(:disabled){ background: #fff; border-color: var(--sky-700); }
+.bar button:focus-visible{ outline: 2px solid var(--sky-700); outline-offset: 3px; }
+.bar button:disabled{ opacity: .35; cursor: default; }
+.count{ min-width: 10em; text-align: center; }
+.hint{
+  font-family: var(--f-body);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-align: center;
+  max-width: 28rem;
+}
+@media (prefers-reduced-motion: reduce){
+  .leaf, .book{ transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="top">
+    <h1>Traduction de Rune</h1>
+    <div class="sep"></div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Choisir une vue">
+    <button role="tab" aria-selected="true"  data-view="trad">Traduction</button>
+    <button role="tab" aria-selected="false" data-view="book">Grimoire</button>
+  </nav>
+
+  <main class="view">
+    <!-- ===================== TRADUCTION ===================== -->
+    <section id="view-trad" class="view active" role="tabpanel">
+      <div class="trad-wrap">
+        <!-- Composition -->
+        <div class="card">
+          <div id="compo" class="compo">
+            <button id="add-btn" class="add-btn" type="button" aria-label="Ajouter une rune ou un espace">+</button>
+          </div>
+        </div>
+
+        <!-- Picker -->
+        <div id="picker" class="picker" aria-hidden="true">
+          <div>
+            <div class="picker-inner">
+              <header>
+                <h4>Choisir une rune</h4>
+                <button type="button" class="close" id="picker-close" aria-label="Fermer">✕</button>
+              </header>
+              <div id="picker-grid" class="picker-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="card-gold output">
+          <div class="kicker">Lecture</div>
+          <div id="reading" class="reading empty">— en attente de runes —</div>
+        </div>
+
+        <div id="actions" class="actions" hidden>
+          <button type="button" class="btn gold" id="btn-copy">
+            <span id="copy-label">Copier la lecture</span>
+          </button>
+          <button type="button" class="btn ghost" id="btn-clear">Tout effacer</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GRIMOIRE ===================== -->
+    <section id="view-book" class="view" role="tabpanel">
+      <div class="book-wrap">
+        <div class="stage" id="stage"><div class="book" id="book"></div></div>
+        <div class="bar">
+          <button id="prev" aria-label="Page précédente">‹</button>
+          <span class="count" id="count">Couverture</span>
+          <button id="next" aria-label="Page suivante">›</button>
+        </div>
+        <div class="hint">Clique sur une page, glisse du doigt ou utilise les flèches du clavier pour feuilleter.</div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<template id="hecate">
+<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+  <circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="38" stroke-width="1"/>
+  <text x="50" y="66" text-anchor="middle" fill="currentColor" stroke="none" font-size="46" font-family="Noto Sans Runic, sans-serif">ᚱ</text>
+</svg>
+</template>
+
+<script>
+/* ============================================================
+   DONNÉES — Alphabet runique
+   ============================================================ */
+const RUNES_ALPHABET = [
+  { rune: "ᚨ",  letters: ["A"],           name: "Ansuz"   },
+  { rune: "ᛒ",  letters: ["B"],           name: "Berkano" },
+  { rune: "ᚲ",  letters: ["C", "K", "Q"], name: "Kaunan"  },
+  { rune: "ᛞ",  letters: ["D"],           name: "Dagaz"   },
+  { rune: "ᛖ",  letters: ["E"],           name: "Ehwaz"   },
+  { rune: "ᚠ",  letters: ["F"],           name: "Fehu"    },
+  { rune: "ᚷ",  letters: ["G"],           name: "Gebo"    },
+  { rune: "ᚺ",  letters: ["H"],           name: "Hagalaz" },
+  { rune: "ᛁ",  letters: ["I"],           name: "Isa"     },
+  { rune: "ᛃ",  letters: ["J", "Y"],      name: "Jera"    },
+  { rune: "ᛚ",  letters: ["L"],           name: "Laguz"   },
+  { rune: "ᛗ",  letters: ["M"],           name: "Mannaz"  },
+  { rune: "ᚾ",  letters: ["N"],           name: "Naudiz"  },
+  { rune: "ᛟ",  letters: ["O"],           name: "Othala"  },
+  { rune: "ᛈ",  letters: ["P"],           name: "Perthro" },
+  { rune: "ᚱ",  letters: ["R"],           name: "Raidō"   },
+  { rune: "ᛋ",  letters: ["S"],           name: "Sowilo"  },
+  { rune: "ᛏ",  letters: ["T"],           name: "Tiwaz"   },
+  { rune: "ᚢ",  letters: ["U"],           name: "Uruz"    },
+  { rune: "ᚹ",  letters: ["V", "W"],      name: "Wunjo"   },
+  { rune: "ᚲᛋ", letters: ["X"],           name: "Kaunan et Sowilo, liées" },
+  { rune: "ᛉ",  letters: ["Z"],           name: "Algiz"   },
+];
+
+/* ============================================================
+   ONGLETS
+   ============================================================ */
+const tabButtons = document.querySelectorAll('nav.tabs button');
+const views = {
+  trad: document.getElementById('view-trad'),
+  book: document.getElementById('view-book'),
+};
+tabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.view;
+    tabButtons.forEach(b => b.setAttribute('aria-selected', b === btn ? 'true' : 'false'));
+    Object.entries(views).forEach(([k, v]) => v.classList.toggle('active', k === target));
+    if (target === 'book') requestAnimationFrame(layout);
+  });
+});
+
+/* ============================================================
+   TRADUCTION — état et rendu
+   ============================================================ */
+const compoEl   = document.getElementById('compo');
+const addBtn    = document.getElementById('add-btn');
+const picker    = document.getElementById('picker');
+const pickerGrid= document.getElementById('picker-grid');
+const pickerClose = document.getElementById('picker-close');
+const readingEl = document.getElementById('reading');
+const actionsEl = document.getElementById('actions');
+const btnCopy   = document.getElementById('btn-copy');
+const btnClear  = document.getElementById('btn-clear');
+const copyLabel = document.getElementById('copy-label');
+
+let tokens = []; // { kind: 'rune'|'space', rune?, chosen? }
+
+function render(){
+  // Nettoie les slots existants (avant le bouton +)
+  [...compoEl.querySelectorAll('.slot')].forEach(el => el.remove());
+
+  tokens.forEach((t, i) => {
+    const slot = document.createElement('div');
+    slot.className = 'slot' + (t.kind === 'space' ? ' space' : '');
+    if (t.kind === 'space') {
+      slot.innerHTML = `
+        <div class="tile"><span class="bar"></span></div>
+        <span class="label">Espace</span>
+      `;
+    } else {
+      const hasMultiple = t.rune.letters.length > 1;
+      let letterHTML = '';
+      if (hasMultiple) {
+        letterHTML = `<div class="letters">${
+          t.rune.letters.map(l =>
+            `<button type="button" data-letter="${l}" aria-pressed="${l === t.chosen ? 'true' : 'false'}">${l}</button>`
+          ).join('')
+        }</div>`;
+      } else {
+        letterHTML = `<span class="label">${t.chosen}</span>`;
+      }
+      slot.innerHTML = `
+        <div class="tile"><span class="rune">${t.rune.rune}</span></div>
+        ${letterHTML}
+      `;
+      if (hasMultiple) {
+        slot.querySelectorAll('.letters button').forEach(b => {
+          b.addEventListener('click', e => {
+            e.stopPropagation();
+            tokens[i].chosen = b.dataset.letter;
+            render();
+          });
+        });
+      }
+    }
+    const rm = document.createElement('button');
+    rm.type = 'button';
+    rm.className = 'remove';
+    rm.setAttribute('aria-label', 'Retirer');
+    rm.textContent = '×';
+    rm.addEventListener('click', e => {
+      e.stopPropagation();
+      tokens.splice(i, 1);
+      render();
+    });
+    slot.appendChild(rm);
+    compoEl.insertBefore(slot, addBtn);
+  });
+
+  const text = tokens.map(t => t.kind === 'space' ? ' ' : t.chosen).join('');
+  if (text.trim()) {
+    readingEl.textContent = text;
+    readingEl.classList.remove('empty');
+  } else {
+    readingEl.textContent = '— en attente de runes —';
+    readingEl.classList.add('empty');
+  }
+  actionsEl.hidden = tokens.length === 0;
+}
+
+function buildPickerGrid(){
+  const frags = RUNES_ALPHABET.map(r => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.title = r.name;
+    b.setAttribute('aria-label', `Ajouter la rune ${r.name}`);
+    b.innerHTML = `
+      <span class="rune">${r.rune}</span>
+      <span class="letters">${r.letters.join(' ')}</span>
+    `;
+    b.addEventListener('click', () => {
+      tokens.push({ kind: 'rune', rune: r, chosen: r.letters[0] });
+      togglePicker(false);
+      render();
+    });
+    return b;
+  });
+  const space = document.createElement('button');
+  space.type = 'button';
+  space.className = 'space';
+  space.setAttribute('aria-label', 'Ajouter un espace');
+  space.innerHTML = `<span class="bar"></span><span class="letters">ESPACE</span>`;
+  space.addEventListener('click', () => {
+    tokens.push({ kind: 'space' });
+    togglePicker(false);
+    render();
+  });
+  pickerGrid.append(...frags, space);
+}
+
+function togglePicker(force){
+  const open = force === undefined ? !picker.classList.contains('open') : force;
+  picker.classList.toggle('open', open);
+  picker.setAttribute('aria-hidden', open ? 'false' : 'true');
+  addBtn.classList.toggle('open', open);
+}
+
+addBtn.addEventListener('click', () => togglePicker());
+pickerClose.addEventListener('click', () => togglePicker(false));
+
+btnClear.addEventListener('click', () => { tokens = []; render(); });
+btnCopy.addEventListener('click', async () => {
+  const text = tokens.map(t => t.kind === 'space' ? ' ' : t.chosen).join('');
+  try {
+    await navigator.clipboard.writeText(text);
+    copyLabel.textContent = 'Copié';
+    setTimeout(() => { copyLabel.textContent = 'Copier la lecture'; }, 1500);
+  } catch { /* noop */ }
+});
+
+buildPickerGrid();
+render();
+
+/* ============================================================
+   GRIMOIRE — flipbook
+   ============================================================ */
+const H = document.getElementById('hecate').innerHTML;
+const row  = (r, l, n) => `<div class="row"><span class="r">${r}</span><span class="l">${l}</span><span class="n">${n}</span></div>`;
+const page = (num, inner) => `<div class="gutter"></div><div class="pg">${inner}</div>${num ? `<div class="folio">${num}</div>` : ''}`;
+
+const sides = [
+  /* 0 couverture */ {
+    cls: 'cover',
+    html: `<div class="spine-l"></div><div class="cv">
+      <div class="band">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ</div>
+      <h1>Traduction des Runes Anciennes</h1>
+      ${H}
+      <div class="by">Alice Hecalys</div>
+      <div class="nation">Skyborn de Skylis</div>
+      <div class="band">ᚷ ᚹ ᚺ ᚾ ᛁ ᛃ</div>
+    </div>`,
+    label: 'Couverture'
+  },
+  /* 1 garde ex-libris */ {
+    cls: 'endpaper',
+    html: `<div class="exlib">
+      <div class="small">Ce livre appartient à</div>
+      <div class="name">Alice Hecalys</div>
+      <div class="small">Skyborn de Skylis</div>
+      <span style="color:var(--sky-700)">${H}</span>
+      <p>Qui le trouve le rende.<br>Qui le lit le respecte.</p>
+    </div>`,
+    label: 'Ex-libris'
+  },
+  /* 2 principe */ {
+    cls: 'paper',
+    html: page('i', `
+      <h2>Le principe</h2><div class="rule">ᚱ</div>
+      <p class="lettrine">Les runes forment un alphabet ancien. Chaque rune correspond à une lettre de notre alphabet, toujours la même.</p>
+      <p>Pour traduire un texte runique, il suffit de remplacer chaque rune par sa lettre. Pour écrire en runes, on fait l'inverse : chaque lettre est remplacée par sa rune.</p>
+    `),
+    label: 'Le principe'
+  },
+  /* 3 table I */ {
+    cls: 'paper',
+    html: page('ii', `
+      <h2>Les correspondances</h2><div class="rule">I</div>
+      <div class="runes-table">
+        ${row('ᚨ','A','Ansuz')}${row('ᛒ','B','Berkano')}${row('ᚲ','C','Kaunan')}
+        ${row('ᛞ','D','Dagaz')}${row('ᛖ','E','Ehwaz')}${row('ᚠ','F','Fehu')}
+        ${row('ᚷ','G','Gebo')}${row('ᚺ','H','Hagalaz')}${row('ᛁ','I','Isa')}
+      </div>
+    `),
+    label: 'Correspondances I'
+  },
+  /* 4 table II */ {
+    cls: 'paper',
+    html: page('iii', `
+      <h2>Les correspondances</h2><div class="rule">II</div>
+      <div class="runes-table">
+        ${row('ᛃ','J','Jera')}${row('ᚲ','K','Kaunan')}${row('ᛚ','L','Laguz')}
+        ${row('ᛗ','M','Mannaz')}${row('ᚾ','N','Naudiz')}${row('ᛟ','O','Othala')}
+        ${row('ᛈ','P','Perthro')}${row('ᚲ','Q','Kaunan')}${row('ᚱ','R','Raidō')}
+      </div>
+    `),
+    label: 'Correspondances II'
+  },
+  /* 5 table III */ {
+    cls: 'paper',
+    html: page('iv', `
+      <h2>Les correspondances</h2><div class="rule">III</div>
+      <div class="runes-table">
+        ${row('ᛋ','S','Sowilo')}${row('ᛏ','T','Tiwaz')}${row('ᚢ','U','Uruz')}
+        ${row('ᚹ','V','Wunjo')}${row('ᚹ','W','Wunjo')}${row('ᚲᛋ','X','Kaunan et Sowilo, liées')}
+        ${row('ᛃ','Y','Jera')}${row('ᛉ','Z','Algiz')}
+      </div>
+      <p class="note">Trois runes ont plusieurs visages : <span class="rn">ᚲ</span> porte C, K et Q ; <span class="rn">ᚹ</span> porte V et W ; <span class="rn">ᛃ</span> porte J et Y. Le sens du mot te dira lequel elles montrent.</p>
+    `),
+    label: 'Correspondances III'
+  },
+  /* 6 règles */ {
+    cls: 'paper',
+    html: page('v', `
+      <h2>Les règles</h2><div class="rule">ᛏ</div>
+      <ul>
+        <li>Les accents s'effacent sous la pierre : É, È, Ê deviennent <span class="rn">ᛖ</span> ; À devient <span class="rn">ᚨ</span> ; Ç devient <span class="rn">ᚲ</span>.</li>
+        <li>Une lettre doublée garde ses deux runes, côte à côte, comme deux sœurs.</li>
+        <li>Un vide entre les signes sépare deux mots.</li>
+        <li>Les runes ignorent les majuscules. Elles n'ont qu'une seule forme, et cela leur suffit.</li>
+      </ul>
+      <p class="note">Une fois la phrase révélée, rends-lui ses accents : elle les a seulement laissés au seuil.</p>
+    `),
+    label: 'Les règles'
+  },
+  /* 7 pièges */ {
+    cls: 'paper',
+    html: page('vi', `
+      <h2>Les pièges</h2><div class="rule">ᛉ</div>
+      <p>Certaines runes se ressemblent comme des jumelles, surtout lorsqu'une main pressée les a tracées.</p>
+      <div class="pair">
+        <span class="gl">ᛟ ᛞ</span><p>O et D. Othala pose deux pieds sous son losange ; Dagaz ressemble à un sablier couché.</p>
+        <span class="gl">ᛖ ᛗ</span><p>E et M. Mannaz croise les bras en son centre ; Ehwaz ne fait que se creuser.</p>
+        <span class="gl">ᛚ ᛏ</span><p>L et T. Laguz n'a qu'une branche qui retombe ; Tiwaz en a deux, comme une flèche dressée.</p>
+        <span class="gl">ᚾ ᚺ</span><p>N et H. Naudiz n'a qu'un trait en travers ; Hagalaz relie deux piliers.</p>
+      </div>
+      <p class="note">Dans le doute, essaie les deux lettres. La bonne est celle qui forme un vrai mot.</p>
+    `),
+    label: 'Les pièges'
+  },
+  /* 8 méthode */ {
+    cls: 'paper',
+    html: page('vii', `
+      <h2>La méthode</h2><div class="rule">ᛗ</div>
+      <ol>
+        <li>Repère les vides : ils te montrent où finissent les mots.</li>
+        <li>Commence par les mots courts, DE, LE, LA, ET. Ils livrent vite leurs lettres, et ces lettres t'aideront ailleurs.</li>
+        <li>Remplace chaque rune par sa lettre, sans te presser.</li>
+        <li>Si une rune hésite, retourne aux pièges et essaie ses deux visages.</li>
+        <li>Relis la phrase entière à voix haute, et rends-lui ses accents.</li>
+      </ol>
+    `),
+    label: 'La méthode'
+  },
+  /* 9 dernier mot */ {
+    cls: 'paper',
+    html: page('viii', `
+      <h2>Dernier mot</h2><div class="rule">ᛞ</div>
+      <p class="lettrine">J'ai rassemblé ici tout ce qu'il faut pour lire et écrire les runes.</p>
+      <p>Puisse ce livre servir à qui en aura besoin.</p>
+      <div style="margin-top:auto;display:flex;flex-direction:column;align-items:flex-end;gap:.2em">
+        <div class="sig" style="margin:0">Alice Hecalys</div>
+        <div style="font-family:var(--f-display);font-size:.8em;letter-spacing:.15em;color:var(--ink-soft)">Skyborn de Skylis</div>
+      </div>
+    `),
+    label: 'Dernier mot'
+  },
+  /* 10 garde */ { cls: 'endpaper', html: '', label: 'Garde' },
+  /* 11 dos */ {
+    cls: 'cover',
+    html: `<div class="spine-r"></div><div class="cv">
+      <div class="band">ᛋ ᛏ ᛒ ᛖ ᛗ ᛚ</div>
+      ${H}
+      <div class="band">ᛜ ᛞ ᛟ</div>
+    </div>`,
+    label: 'Quatrième de couverture'
+  }
+];
+
+const bookEl  = document.getElementById('book');
+const stageEl = document.getElementById('stage');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const countEl = document.getElementById('count');
+
+const N = sides.length / 2;
+const leaves = [];
+for (let i = 0; i < N; i++) {
+  const lf = document.createElement('div');
+  lf.className = 'leaf';
+  const f = sides[2 * i];
+  const b = sides[2 * i + 1];
+  lf.innerHTML = `<div class="face front ${f.cls}">${f.html}</div><div class="face back ${b.cls}">${b.html}</div>`;
+  lf.addEventListener('click', () => {
+    (lf.classList.contains('flipped') ? prev : next)();
+  });
+  bookEl.appendChild(lf);
+  leaves.push(lf);
+}
+
+let single = false;
+let s = 0; // index de la face en mode simple
+let f = 0; // nombre de feuillets tournés
+function layout(){
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  single = vw < 760;
+  const availH = vh - 240;
+  let pw = single ? Math.min(vw - 32, availH * 0.7) : Math.min((vw - 48) / 2, availH * 0.7);
+  pw = Math.max(200, Math.floor(pw));
+  document.documentElement.style.setProperty('--pw', pw + 'px');
+  document.documentElement.style.setProperty('--ph', Math.round(pw / 0.7) + 'px');
+  stageEl.classList.toggle('single', single);
+  stageEl.style.width  = (single ? pw : pw * 2) + 'px';
+  stageEl.style.height = Math.round(pw / 0.7) + 'px';
+  if (single) { f = Math.ceil(s / 2); }
+  else { s = f === 0 ? 0 : Math.min(2 * f, sides.length - 1); }
+  renderBook(false);
+}
+function renderBook(animate = true){
+  const pw = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pw'));
+  leaves.forEach((lf, i) => {
+    const flipped = i < f;
+    if (flipped !== lf.classList.contains('flipped')) {
+      lf.style.zIndex = 100;
+      clearTimeout(lf._t);
+      lf._t = setTimeout(() => {
+        lf.style.zIndex = lf.classList.contains('flipped') ? i + 1 : N - i;
+      }, animate ? 900 : 0);
+    } else {
+      lf.style.zIndex = flipped ? i + 1 : N - i;
+    }
+    lf.classList.toggle('flipped', flipped);
+  });
+  let x = 0;
+  if (single) { x = (s % 2 === 0) ? -pw : 0; }
+  else { if (f === 0) x = -pw / 2; else if (f === N) x = pw / 2; }
+  bookEl.style.transform = `translateX(${x}px)`;
+  const label = single
+    ? sides[s].label
+    : (f === 0 ? 'Couverture' : f === N ? 'Quatrième de couverture' : `${sides[2 * f - 1].label}  ·  ${sides[2 * f].label}`);
+  countEl.textContent = label;
+  prevBtn.disabled = single ? s === 0 : f === 0;
+  nextBtn.disabled = single ? s === sides.length - 1 : f === N;
+}
+function next(){ if (single) { if (s < sides.length - 1) { s++; f = Math.ceil(s / 2); } } else if (f < N) f++; renderBook(); }
+function prev(){ if (single) { if (s > 0)              { s--; f = Math.ceil(s / 2); } } else if (f > 0) f--; renderBook(); }
+nextBtn.addEventListener('click', next);
+prevBtn.addEventListener('click', prev);
+document.addEventListener('keydown', e => {
+  if (views.book.classList.contains('active')) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft')  prev();
+  }
+});
+let tx = null;
+stageEl.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+stageEl.addEventListener('touchend',   e => {
+  if (tx === null) return;
+  const d = e.changedTouches[0].clientX - tx;
+  if (Math.abs(d) > 40) { d < 0 ? next() : prev(); e.preventDefault(); }
+  tx = null;
+});
+window.addEventListener('resize', layout);
+layout();
+</script>
+
+</body>
+</html>
