@@ -1,0 +1,10 @@
+{
+  // Site statique Cloudflare Pages — un seul index.html a la racine.
+  // Doc : https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rune",
+  "compatibility_date": "2025-06-01",
+
+  // Pas de build : le site est deja un index.html statique a la racine du repo.
+  "pages_build_output_dir": "./"
+}
